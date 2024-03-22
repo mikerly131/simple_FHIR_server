@@ -6,6 +6,7 @@ Using enums for attributes with limited value sets and required by spec or my sy
 """
 from pydantic import BaseModel
 from schema.resource import ResourceCreate, Resource
+from schema.codeable_concept import CodeableConcept
 from typing import Optional
 from enum import Enum
 
@@ -39,7 +40,7 @@ class ParticipantRequired(str, Enum):
 
 # Appointments require one or more participants - patient, providers, and/or locations
 class AppointmentParticipant(BaseModel):
-    type: Optional[list] = None
+    type: Optional[list[CodeableConcept]] = None
     actor: dict
     status: ParticipantStatus
     required: ParticipantRequired
@@ -47,12 +48,12 @@ class AppointmentParticipant(BaseModel):
 
 class AppointmentCreate(ResourceCreate):
     status: AppointmentStatus
-    cancelation_reason: Optional[list] = None
-    service_category: Optional[list] = None
-    service_type: Optional[list] = None
-    specialty: Optional[list] = None
-    appointment_type: Optional[list] = None
-    reason_code: Optional[list] = None
+    cancelation_reason: Optional[CodeableConcept] = None
+    service_category: Optional[list[CodeableConcept]] = None
+    service_type: Optional[list[CodeableConcept]] = None
+    specialty: Optional[list[CodeableConcept]] = None
+    appointment_type: Optional[CodeableConcept] = None
+    reason_code: Optional[CodeableConcept] = None
     reason_reference: Optional[list] = None
     priority: Optional[int] = None
     description: Optional[str] = None
