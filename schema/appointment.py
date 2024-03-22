@@ -5,7 +5,7 @@ Many attributes of appointments appear to be optional.
 Using enums for attributes with limited value sets and required by spec or my system
 """
 from pydantic import BaseModel
-from resource import ResourceCreate, Resource
+from schema.resource import ResourceCreate, Resource
 from typing import Optional
 from enum import Enum
 
