@@ -6,7 +6,7 @@ Slots can have more than one appointment, but not in my system for now.
 serviceCategory, serviceType, speciality, appointmentType:
 - what slot can be used for, not appointment details in my system
 """
-from pydantic import BaseModel
+from resource import ResourceCreate, Resource
 from typing import Optional
 from enum import Enum
 
@@ -20,16 +20,12 @@ class SlotStatus(str, Enum):
     error = 'entered-in-error'
 
 
-class Slot(BaseModel):
-    resource_type: str
-    id: str
-    text: Optional[dict] = None
-    identifier: Optional[list] = None
+class SlotCreate(ResourceCreate):
     service_category: Optional[list] = None
     service_type: Optional[list] = None
     specialty: Optional[list] = None
     appointment_type: Optional[list] = None
-    schedule: dict
+    schedule: dict[str, str]
     status: SlotStatus
     start: str
     end: str
@@ -37,5 +33,7 @@ class Slot(BaseModel):
     comment: Optional[str] = None
 
 
+class Slot(SlotCreate, Resource):
+    pass
 
 

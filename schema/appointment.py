@@ -1,12 +1,13 @@
 """
 The pydantic model for appointment resource based on FHIR R4 specification.
 
-I'm choosing to implement a lot of the elements for learning purposes, examples show less are often used.
+Many attributes of appointments appear to be optional.
+Using enums for attributes with limited value sets and required by spec or my system
 """
 from pydantic import BaseModel
+from resource import ResourceCreate, Resource
 from typing import Optional
 from enum import Enum
-from slot import Slot
 
 
 # Appointment status has defined set of possible values
@@ -44,11 +45,7 @@ class AppointmentParticipant(BaseModel):
     required: ParticipantRequired
 
 
-class Appointment(BaseModel):
-    resource_type: str
-    id: str
-    text: Optional[dict] = None
-    identifier: Optional[list] = None
+class AppointmentCreate(ResourceCreate):
     status: AppointmentStatus
     cancelation_reason: Optional[list] = None
     service_category: Optional[list] = None
@@ -63,7 +60,10 @@ class Appointment(BaseModel):
     end: str
     minutes_duration: Optional[int] = None
     slot: list[dict]
-    created: str
     comment: Optional[str] = None
     patient_instruction: Optional[str] = None
     participant: list[AppointmentParticipant]
+
+
+class Appointment(AppointmentCreate, Resource):
+    created: str
