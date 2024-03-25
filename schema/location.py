@@ -6,6 +6,8 @@ Keeping it light in my system: buildings and rooms in buildings
 """
 from resource import ResourceCreate, Resource
 from codeable_concept import CodeableConcept
+from address import Address
+from contact_point import ContactPoint
 from typing import Optional
 from enum import Enum
 
@@ -23,9 +25,9 @@ class LocationCreate(ResourceCreate):
     description: str
     type: Optional[list[CodeableConcept]] = None
     physical_type: Optional[CodeableConcept] = None
-    telecom: Optional[list[dict]] = None
-    address: Optional[dict] = None
-    partOf: Optional[dict] = None
+    telecom: Optional[list[ContactPoint]] = None
+    address: Optional[Address] = None
+    partOf: Optional[dict[str, str]] = None
 
 
 class Location(LocationCreate, Resource):

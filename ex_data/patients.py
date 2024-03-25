@@ -8,8 +8,6 @@ from db.db import Session
 patient1 = PatientCreate(active=True,
                          name=[{"use": "official", "family": "Clark", "given": ["James"]},
                                {"use": "usual", "given": ["Jim"]}],
-                         telecom=[{"use": "home"}],
-                         address=[{"use": "home"}],
                          gender="male",
                          birth_date="1992-10-18",
                          deceased_boolean=False)
@@ -17,16 +15,12 @@ patient1 = PatientCreate(active=True,
 patient2 = PatientCreate(active=True,
                          name=[{"use": "official", "family": "Dogg", "given": ["Gooferson"]},
                                {"use": "usual", "given": ["Goofy"]}],
-                         telecom=[{"use": "home"}],
-                         address=[{"use": "home"}],
                          gender="male",
                          birth_date="1942-03-28",
                          deceased_boolean=False)
 
 patient3 = PatientCreate(active=True,
                          name=[{"use": "official", "family": "Madison", "given": ["Sarah"]}],
-                         telecom=[{"use": "home"}],
-                         address=[{"use": "home"}],
                          gender="female",
                          birth_date="1979-06-03",
                          deceased_boolean=False)
