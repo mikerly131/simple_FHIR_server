@@ -6,28 +6,28 @@ from models.practitioner import Practitioner
 from db.db import Session
 
 p1 = PractitionerCreate(active=True,
-                         name=[{"use": "official", "family": "Henderson", "given": ["Henry"], "prefix": "Dr."},
+                        name=[{"use": "official", "family": "Henderson", "given": ["Henry"], "prefix": "Dr."},
                                {"use": "usual", "given": ["Hank"]}],
-                         telecom=[{"use": "home"}],
-                         address=[{"use": "home"}],
-                         gender="male",
-                         birth_date="1985-07-09")
+                        telecom=[{"use": "home"}],
+                        address=[{"use": "home"}],
+                        gender="male",
+                        birth_date="1985-07-09")
 
 p2 = PractitionerCreate(active=True,
-                         name=[{"use": "official", "family": "Persona", "given": ["Emily"], "prefix": "Dr."},
+                        name=[{"use": "official", "family": "Persona", "given": ["Emily"], "prefix": "Dr."},
                                {"use": "maiden", "family": "Nonpersona"}],
-                         telecom=[{"use": "home"}],
-                         address=[{"use": "home"}],
-                         gender="female",
-                         birth_date="1962-04-12")
+                        telecom=[{"use": "home"}],
+                        address=[{"use": "home"}],
+                        gender="female",
+                        birth_date="1962-04-12")
 
 p3 = PractitionerCreate(active=True,
-                         name=[{"use": "official", "family": "Testdoc", "given": ["Christina"], "prefix": "Dr."},
+                        name=[{"use": "official", "family": "Testdoc", "given": ["Christina"], "prefix": "Dr."},
                                {"use": "usual", "given": ["Tina"]}],
-                         telecom=[{"use": "home"}],
-                         address=[{"use": "home"}],
-                         gender="female",
-                         birth_date="1978-02-23")
+                        telecom=[{"use": "home"}],
+                        address=[{"use": "home"}],
+                        gender="female",
+                        birth_date="1978-02-23")
 
 prac_data = [p1, p2, p3]
 

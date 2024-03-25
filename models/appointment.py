@@ -8,7 +8,7 @@ from sqlalchemy import ForeignKey, String
 from typing import Optional
 
 
-class Slot(Base):
+class Appointment(Base):
     __tablename__ = 'appointment'
 
     resource_id: Mapped[str] = mapped_column(primary_key=True)

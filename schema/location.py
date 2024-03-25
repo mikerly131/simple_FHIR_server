@@ -5,6 +5,7 @@ Locations will have schedules with slots, and be used for appointments.
 Keeping it light in my system: buildings and rooms in buildings
 """
 from resource import ResourceCreate, Resource
+from codeable_concept import CodeableConcept
 from typing import Optional
 from enum import Enum
 
@@ -20,8 +21,8 @@ class LocationCreate(ResourceCreate):
     name: str
     alias: Optional[list[str]] = None
     description: str
-    type: Optional[list] = None
-    physical_type: Optional[dict] = None
+    type: Optional[list[CodeableConcept]] = None
+    physical_type: Optional[CodeableConcept] = None
     telecom: Optional[list[dict]] = None
     address: Optional[dict] = None
     partOf: Optional[dict] = None
