@@ -7,7 +7,7 @@ load_dotenv()
 
 import logging
 from fastapi import FastAPI
-from routes import appointment
+from routes import appointment, schedule
 
 logging.basicConfig(level=logging.INFO,
                     filename='app_errors.log',
@@ -17,3 +17,4 @@ logging.basicConfig(level=logging.INFO,
 app = FastAPI()
 
 app.include_router(appointment.router)
+app.include_router(schedule.router)
