@@ -12,27 +12,28 @@ from schema.slot import Slot, SlotCreate
 router = APIRouter()
 
 
+# note, bundles expected return resource
 @router.get("/Schedule")
-def search_appointments(_id: str | None = None, _serv_cat: str | None = None):
+def search_schedules(_id: str | None = None, _serv_cat: str | None = None):
     if _id is None and _serv_cat is None:
         return {"error": "include a search parameter"}
     else:
-        return { "message": "appointment search results", "_id": _id}
+        return { "message": "schedule search results", "_id": _id}
 
 
 # Get an schedule by its unique resource id
 @router.get("/Schedule/{id}", response_model=Schedule)
-def get_appointment(id: str):
-    return {"message": "appointment info", "resource_id": id}
+def get_schedule(id: str):
+    return {"message": "schedule info", "resource_id": id}
 
 
 # Create a new schedule
 @router.post("/Schedule")
-def create_appointment(schedule: ScheduleCreate):
-    return {"message": "appointment created"}
+def create_schedule(schedule: ScheduleCreate):
+    return {"message": "schedule created"}
 
 
 # Update a schedule's information
 @router.put("/Schedule/{id}")
-def update_appointment(id: str):
-    return {"message": "appointment updated"}
+def update_schedule(id: str):
+    return {"message": "schedule updated"}

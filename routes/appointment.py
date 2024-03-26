@@ -8,6 +8,7 @@ router = APIRouter()
 
 
 # Search for appointments using parameters
+# note, bundles expected return resource
 @router.get("/Appointment")
 def search_appointments(_id: str | None = None, _start_time: str | None = None):
     if _id is None and _start_time is None:

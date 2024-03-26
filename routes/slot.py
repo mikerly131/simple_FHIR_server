@@ -10,6 +10,7 @@ from schema.slot import Slot, SlotCreate
 router = APIRouter()
 
 
+# note, bundles expected return resource
 @router.get("/Slot")
 def search_slots(_id: str | None = None, _serv_cat: str | None = None):
     if _id is None and _serv_cat is None:
