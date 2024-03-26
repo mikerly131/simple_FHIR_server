@@ -1,5 +1,5 @@
 """
-Routes for creating, updating and deleting schedules
+Routes for creating, reading, updating and deleting schedules
 
 Rules:
 - belongs to one instance of a resource: Practitioner or Location in this systems
